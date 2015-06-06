@@ -11,7 +11,7 @@ namespace PromoServicesApplication.Models
     {
         public static bool SendEventPostedMail(EventTableProd a, string eventUrl)
         {
-            //------------------------working email code---------------------------//
+            //-----------------------working email code--------------------------//
             try
             {
                 MailMessage email = new MailMessage();
