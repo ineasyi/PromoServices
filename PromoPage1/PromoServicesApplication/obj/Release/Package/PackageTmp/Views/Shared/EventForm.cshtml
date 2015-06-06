@@ -1,0 +1,226 @@
+﻿@model PromoServicesApplication.EventTableProd
+@{
+    string[] genres = { "70's", "80's", "90's", "Hip-Hop", "House", "Reggae", "Rock", "Top40", "Top100", "Techno", "Soca", "Latin", "POP", "Rap", "International", "EDM", "R&amp;B", "Karaoke", "On Request/Jukebox", "Jazz", "Country", "Calypso", "Trance" };
+    var musicSelected = new List<SelectListItem>();
+    for (int count = 0; count <= genres.Length - 1; count++)
+    {
+        musicSelected.Add(new SelectListItem()
+        {
+            Text = genres[count].ToString(),
+            Value = genres[count].ToString()
+        });
+    }
+    var musicSelectList = new SelectList(musicSelected, "Value", "Text");
+    ViewData["MusicSelected"] = musicSelectList;
+
+    string[] types = { "After Work", "Bar", "Beach Party", "Block Party", "Christmas Party", "Concert", "Costume", "Day Party", "Festival/Parade", "Halloween Party", "Happy Hour", "Hotel Bar", "Live Music", "Lounge", "New Years Eve Party", "Night Club", "Open Bar", "Open Mic", "Pool Party", "Rave", "Roof Top", "Strip Club", "Thanksgiving Party" };
+    var typeSelected = new List<SelectListItem>();
+    for (int count = 0; count <= types.Length - 1; count++)
+    {
+        typeSelected.Add(new SelectListItem()
+        {
+            Text = types[count].ToString(),
+            Value = types[count].ToString()
+        });
+    }
+    var typeSelectList = new SelectList(typeSelected, "Value", "Text");
+    ViewData["TypeSelected"] = typeSelectList;
+
+    //string[] state = { "Pennsylvania", "New York", "New Jersey" };
+    var stateSelected = new List<SelectListItem>();
+    stateSelected.Add(new SelectListItem()
+    {
+        Text = "Pennsylvania",
+        Value = "Pennsylvania",
+        Selected = true
+    });
+    stateSelected.Add(new SelectListItem()
+    {
+        Text = "New York",
+        Value = "New York"
+    });
+    stateSelected.Add(new SelectListItem()
+    {
+        Text = "New Jersey",
+        Value = "New Jersey"
+    });
+    //for (int count = 0; count <= states.Length - 1; count++)
+    //{
+    //    stateSelected.Add(new SelectListItem()
+    //    {
+    //        Text = states[count].ToString(),
+    //        Value = states[count].ToString()
+    //    });
+    //}
+    var stateSelectList = new SelectList(stateSelected, "Value", "Text");
+    ViewData["StateSelected"] = stateSelectList;
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "EventForm", enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="overflow: hidden;">
+        <h4>Submit your event:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2", })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBox("type_selected", (SelectList)(ViewData["TypeSelected"]), new { htmlAttributes = new { @class = "form-control", @multiple = "multiple", @id = "checklist", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control input-sm", @rows = "4", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @id = "datepicker1", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", @id = "datepicker", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Venue, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Venue, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Venue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StreetAdress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StreetAdress, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.StreetAdress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBox("state_selected", (SelectList)(ViewData["StateSelected"]), new { htmlAttributes = new { @class = "form-control", @id = "checklist", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Music, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBox("music_selected", (SelectList)(ViewData["MusicSelected"]), new { htmlAttributes = new { @class = "form-control", @multiple = "multiple", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Music, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DressCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DressCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DressCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Flyer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="FlyerFile" class="form-control" required />
+                <!-- Html.(model => model.Flyer, new { htmlAttributes = new { class = "form-control" } -->
+                @Html.ValidationMessageFor(model => model.Flyer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VideoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VideoUrl, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VideoUrl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit Event" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

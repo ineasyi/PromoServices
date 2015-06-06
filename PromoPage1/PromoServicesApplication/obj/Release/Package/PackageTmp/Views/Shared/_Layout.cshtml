@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Social Conglomorate</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/Content/Magister/magister.css">
+    <!-- Fonts -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+    <link href="~/Content/jquery.checkList.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>*@
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year The Social Conglomorate</p>
+        </footer>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/MagisterJS/magister.js"></script>
+    <script type="text/javascript" src="~/Scripts/DateTimePicker/jquery.datetimepicker.js"></script>
+    <script>
+    $(function () {
+        $('#datepicker').datetimepicker({
+            step: 15,
+            timepicker: true,
+            formatTime: 'g:i A',
+            format: 'm/d/Y h:i A',
+            minDate: 0,
+            defaultDate: 0,
+        });
+    });
+    $(function () {
+        $('#datepicker1').datetimepicker({
+            step: 15,
+            timepicker: true,
+            formatTime: 'g:i A',
+            format: 'm/d/Y h:i A',
+            minDate: 0,
+            defaultDate: 0,
+        });
+    });
+    </script>
+</body>
+</html>

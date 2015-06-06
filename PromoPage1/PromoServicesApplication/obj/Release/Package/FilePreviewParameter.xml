@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="PromoServices" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\NateA\\Documents\\Visual\ Studio\ 2013\\Projects\\PromoPage1\\PromoServicesApplication\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\NateA\\Documents\\Visual\ Studio\ 2013\\Projects\\PromoPage1\\PromoServicesApplication\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="EventsEntities-Web.config Connection String" description="" value="metadata=res://*/EventModel.csdl|res://*/EventModel.ssdl|res://*/EventModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=erct1z65ub.database.windows.net;initial catalog=Events;user id=activity;password=Sonic555;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\NateA\\Documents\\Visual\ Studio\ 2013\\Projects\\PromoPage1\\PromoServicesApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EventsEntities']/@connectionString" />
+  </parameter>
+  <parameter name="masterEntities-Web.config Connection String" description="masterEntities Connection String used in web.config by the application to access the database." value="metadata=res://*/ActivityModel.csdl|res://*/ActivityModel.ssdl|res://*/ActivityModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=erct1z65ub.database.windows.net;persist security info=True;user id=activity;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\NateA\\Documents\\Visual\ Studio\ 2013\\Projects\\PromoPage1\\PromoServicesApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='masterEntities']/@connectionString" />
+  </parameter>
+</parameters>

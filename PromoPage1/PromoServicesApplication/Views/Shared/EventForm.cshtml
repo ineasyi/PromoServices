@@ -1,0 +1,216 @@
+﻿@model PromoServicesApplication.EventTableProd
+@{
+
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "EventForm", enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="overflow: hidden;">
+        <h4>Submit your event:</h4>
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">Name</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Name" name="Name" required="required" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Type">Type</label>
+            <div class="col-md-10">
+                <select htmlattributes="{ class = form-control, multiple = multiple, id = checklist }" id="type_selected" multiple="multiple" name="type_selected">
+                    <option value=""></option>
+                    <option value="After Work">After Work</option>
+                    <option value="Bar">Bar</option>
+                    <option value="Beach Party">Beach Party</option>
+                    <option value="Block Party">Block Party</option>
+                    <option value="Christmas Party">Christmas Party</option>
+                    <option value="Concert">Concert</option>
+                    <option value="Costume">Costume</option>
+                    <option value="Day Party">Day Party</option>
+                    <option value="Festival/Parade">Festival/Parade</option>
+                    <option value="Halloween Party">Halloween Party</option>
+                    <option value="Happy Hour">Happy Hour</option>
+                    <option value="Hotel Bar">Hotel Bar</option>
+                    <option value="Live Music">Live Music</option>
+                    <option value="Lounge">Lounge</option>
+                    <option value="New Years Eve Party">New Years Eve Party</option>
+                    <option value="Night Club">Night Club</option>
+                    <option value="Open Bar">Open Bar</option>
+                    <option value="Open Mic">Open Mic</option>
+                    <option value="Pool Party">Pool Party</option>
+                    <option value="Rave">Rave</option>
+                    <option value="Roof Top">Roof Top</option>
+                    <option value="Strip Club">Strip Club</option>
+                    <option value="Thanksgiving Party">Thanksgiving Party</option>
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="Type" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Description">Description</label>
+            <div class="col-md-10">
+                <input class="form-control input-sm text-box single-line" id="Description" name="Description" required="required" rows="4" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="StartDate">StartDate</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field StartDate must be a date." data-val-required="The StartDate field is required." id="datepicker1" name="StartDate" required="required" type="datetime" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="StartDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="EndDate">EndDate</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field EndDate must be a date." data-val-required="The EndDate field is required." id="datepicker" name="EndDate" required="required" type="datetime" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="EndDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Venue">Venue</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Venue" name="Venue" required="required" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Venue" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="StreetAdress">StreetAdress</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="StreetAdress" name="StreetAdress" required="required" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="StreetAdress" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="City">City</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="City" name="City" required="required" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="City" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="State">State</label>
+            <div class="col-md-10">
+                <select htmlattributes="{ class = form-control, id = checklist, required = required }" id="state_selected" multiple="multiple" name="state_selected">
+                    <option value="Pennsylvania">Pennsylvania</option>
+                    <option value="New York">New York</option>
+                    <option value="New Jersey">New Jersey</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Zip">Zip</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Zip" name="Zip" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Zip" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Email">Email</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Email" name="Email" required="required" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Phone">Phone</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Phone" name="Phone" required="required" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Phone" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Music">Music</label>
+            <div class="col-md-10">
+                <select htmlattributes="{ class = form-control, multiple = multiple, required = required }" id="music_selected" multiple="multiple" name="music_selected">
+                    <option value="70&#39;s">70&#39;s</option>
+                    <option value="80&#39;s">80&#39;s</option>
+                    <option value="90&#39;s">90&#39;s</option>
+                    <option value="Hip-Hop">Hip-Hop</option>
+                    <option value="House">House</option>
+                    <option value="Reggae">Reggae</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Top40">Top40</option>
+                    <option value="Top100">Top100</option>
+                    <option value="Techno">Techno</option>
+                    <option value="Soca">Soca</option>
+                    <option value="Latin">Latin</option>
+                    <option value="POP">POP</option>
+                    <option value="Rap">Rap</option>
+                    <option value="International">International</option>
+                    <option value="EDM">EDM</option>
+                    <option value="R&amp;amp;B">R&amp;amp;B</option>
+                    <option value="Karaoke">Karaoke</option>
+                    <option value="On Request/Jukebox">On Request/Jukebox</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Country">Country</option>
+                    <option value="Calypso">Calypso</option>
+                    <option value="Trance">Trance</option>
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="Music" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="DressCode">DressCode</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="DressCode" name="DressCode" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="DressCode" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Age">Age</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Age" name="Age" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Age" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Cost">Cost</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Cost" name="Cost" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Cost" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Flyer">Flyer</label>
+            <div class="col-md-10">
+                <input type="file" name="FlyerFile" class="form-control" required />
+                <!-- Html.(model => model.Flyer, new { htmlAttributes = new { class = "form-control" } -->
+                <span class="field-validation-valid text-danger" data-valmsg-for="Flyer" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="VideoUrl">VideoUrl</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="VideoUrl" name="VideoUrl" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="VideoUrl" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit Event" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

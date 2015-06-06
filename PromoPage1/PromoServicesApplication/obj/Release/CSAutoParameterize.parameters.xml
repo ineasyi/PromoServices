@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="masterEntities-Web.config Connection String" description="masterEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/ActivityModel.csdl|res://*/ActivityModel.ssdl|res://*/ActivityModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=erct1z65ub.database.windows.net;persist security info=True;user id=activity;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\NateA\\Documents\\Visual\ Studio\ 2013\\Projects\\PromoPage1\\PromoServicesApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='masterEntities']/@connectionString" />
+  </parameter>
+  <parameter name="EventsEntities-Web.config Connection String" description="EventsEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/EventModel.csdl|res://*/EventModel.ssdl|res://*/EventModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=erct1z65ub.database.windows.net;initial catalog=Events;user id=activity;password=Sonic555;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\NateA\\Documents\\Visual\ Studio\ 2013\\Projects\\PromoPage1\\PromoServicesApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EventsEntities']/@connectionString" />
+  </parameter>
+</parameters>

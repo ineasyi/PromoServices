@@ -1,0 +1,177 @@
+﻿@using PromoServicesApplication.Models
+@{
+    string contact = string.Empty;
+    string head = string.Empty;
+    if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        contact = "active";
+    }
+    else 
+    { 
+        head = "active";
+    }
+}
+<body class="" style="align-content:center">
+
+    <nav class="mainmenu">
+        <div class="container">
+            <div class="dropdown">
+                <button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                @*<a data-toggle="dropdown" href="#">Dropdown trigger</a>*@
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li><a href="#head" class="@head">Welcome</a></li>
+                    <li><a href="#about" class="">About Philly Promo</a></li>
+                    <li><a href="#event" class ="" id="themeClick">Post an Event</a></li>
+                    <li><a href="#contact" class="@contact">Contact/Inquiry</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main (Home) section -->
+    <section class="section" id="head" style="overflow: hidden; width:auto">
+        <div class="container" style="overflow: hidden;">
+
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
+
+                    <!-- Site Title, your name, HELLO msg, etc. -->
+                    <h1 class="title">Philly Promo</h1>
+                    <h2 class="subtitle">Promotion & Event Services</h2>
+
+                    <!-- Short introductory (optional) -->
+                    <h3 class="tagline" style="color:whitesmoke">
+                        Need a little promotion? <br/>Maybe a DJ, bartenders, models, or simply looking for a place to party.<br>
+                        Please inquire about any of your event needs.
+                    </h3>
+
+                    <!-- Nice place to describe your site in a sentence or two -->
+                    <p><a href="#themes" class="btn btn-default btn-lg" onclick="themeClick()">Post an Event</a></p>
+
+                </div> <!-- /col -->
+            </div> <!-- /row -->
+
+        </div>
+    </section>
+
+    <!-- Second (About) section -->
+    <section class="section" id="about" style="overflow: hidden">
+        <div class="container">
+
+            <h2 class="text-center title">About Philly Promo</h2>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-2">
+                    <h5><strong>Who we are<br></strong></h5>
+                    <div id="container4">
+                        <div id="container3">
+                            <div id="container2">
+                                <div id="container1">
+                                    <div id="col1">
+                                        <!-- Column one start -->
+                                        <!-- Column one end -->
+                                    </div>
+                                    <div id="col2">
+                                        <!-- Column two start -->
+                                        <!-- Column two end -->
+                                    </div>
+                                    <div id="col3">
+                                        <!-- Column three start -->
+                                        <!-- Column three end -->
+                                    </div>
+                                    <div id="col4">
+                                        <!-- Column four start -->
+                                        <!-- Column four end -->
+                                    </div>
+                                </div>
+                                       </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-sm-4">
+                        <h5><strong>More, more lipsum!<br></strong></h5>
+                        <p>Tempore, eos, voluptatem minus commodi error aut eaque neque consequuntur optio nesciunt quod quibusdam. Ipsum, voluptatibus, totam, modi perspiciatis repudiandae odio ad possimus molestias culpa optio eaque itaque dicta quod cupiditate reiciendis illo illum aspernatur ducimus praesentium quae porro alias repellat quasi cum fugiat accusamus molestiae exercitationem amet fugit sint eligendi omnis adipisci corrupti. Aspernatur.</p>
+                        <h5><strong>Author links<br></strong></h5>
+                        <p><a href="http://be.net/pozhilov9409">Behance</a> / <a href="https://twitter.com/serggg">Twitter</a> / <a href="http://linkedin.com/pozhilov">LinkedIn</a> / <a href="https://www.facebook.com/pozhilov">Facebook</a></p>
+                    </div>*@
+            </div>
+        </div>
+    </section>
+    <section class="section" id="event" style="overflow: hidden">
+        @Html.Partial("~/Views/Shared/EventForm.cshtml")
+    </section>
+    <!-- Third (Works) section -->
+    @*    <section class="section" id="themes">
+            <div class="container">
+
+                <h2 class="text-center title">Post an Event</h2>
+                <p class="lead text-center">
+                    Fill out form and your event will be automatically listed on YourPartyHub.com!<br>
+                    *For just $1 we will Promote and Feature your event!*
+                </p>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <div class="thumbnail">
+                            <img src="~/Content/Magister/images/body1.jpg" alt="">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="col-sm-4">
+                        <div class="thumbnail">
+                            <img src="assets/screenshots/sshot4.jpg" alt="">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <div class="thumbnail">
+                            <img src="assets/screenshots/sshot5.jpg" alt="">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="thumbnail">
+                            <img src="assets/screenshots/sshot3.jpg" alt="">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>*@
+    <section class="section" id="contact" style="overflow:hidden">
+        @Html.Partial("~/Views/Shared/InquiryForm.cshtml")
+    </section>
+    <script>
+        function themeClick() {
+            $("#themeClick").click();
+        }
+    </script>
+    <script>
+    $(function () {
+        $('#EventForm').submit(function () {
+            var options = $('#checklist > option:selected');
+            if (options.length == 0) {
+                alert('no value selected');
+                return false;
+            }
+        });
+    });
+    </script>
+
+</body>
+
